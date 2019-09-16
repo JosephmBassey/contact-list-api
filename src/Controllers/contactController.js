@@ -30,8 +30,9 @@ class ContactController {
         msg: "New Contact Added",
         contact: newContact
       })
+
     } catch (error) {
-      res.status(500).json({msg:"An Error Occur", error.message })
+      res.status(500).json(error)
     }
   }
   static async getSingleContact(req, res) {
@@ -85,7 +86,7 @@ static async updateContact(req, res){
     }, {
       new: true
     })
-    res.status(200).json({
+    res.status(201).json({
       msg: "Contact List Updated",
       contact
     })
